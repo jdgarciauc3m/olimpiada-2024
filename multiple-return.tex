@@ -1,0 +1,59 @@
+\subsection{Retorno múltiple de funciones}
+
+\begin{frame}[t,fragile]{Devolución múltiple}
+\begin{itemize}
+  \item ¿Puedo devolver más de un valor de una función?\pause
+\begin{lstlisting}
+std::tuple<int,int> divide(int dividendo, int divisor) {
+  return std::tuple {
+    dividendo / divisor,
+    dividendo % divisor
+  };
+}
+\end{lstlisting}
+\end{itemize}
+
+\begin{columns}[T]
+
+\column{.1\textwidth}
+\column{.5\textwidth}
+
+\begin{itemize}
+  \pause
+  \item ¿Cómo lo uso (anticuado)?
+\begin{lstlisting}
+void f() {
+  auto resultado = divide(10, 3);
+  int cociente = std::get<0>(resultado);
+  int resto = std::get<1>(resultado);
+  //...
+\end{lstlisting}
+\end{itemize}
+\column{.5\textwidth}
+
+\begin{itemize}
+  \pause
+  \item ¿Cómo lo uso (moderno)?
+\begin{lstlisting}
+void f() {
+  auto [cociente, resto] = divide(10, 3);
+  //...
+\end{lstlisting}
+\end{itemize}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}[t,fragile]{Combinando ideas}
+\begin{itemize}
+  \item Una vinculación estructurada se puede combinar con un bucle
+        basado en rango.
+\begin{lstlisting}
+void imprime_notas(const std::map<std::string, double> & notas) {
+  for (auto & [nombre, nota] : notas) {
+    std::cout << nombre << ": " << nota << '\n';
+  }
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}

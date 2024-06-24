@@ -1,0 +1,128 @@
+\section{Introducción}
+
+\subsection{¿Dónde está C++?}
+
+\begin{frame}[t]{Probablemente usas C++ a diario}
+\centering
+\includegraphics[height=1.5cm]{logos/office.png}
+\hspace{1cm}
+\includegraphics[height=1.5cm]{logos/open-office.png}
+\\
+\vspace{.5cm}
+\includegraphics[height=1.5cm]{logos/libre-office.jpg}
+\hspace{2cm}
+\includegraphics[height=1.5cm]{logos/adobe.png}
+\\
+\vspace{.5cm}
+\includegraphics[height=1cm]{logos/edge.jpg}
+\hspace{1cm}
+\includegraphics[height=1cm]{logos/firefox.jpg}
+\hspace{1cm}
+\includegraphics[height=1cm]{logos/chrome.jpg}
+\hspace{1cm}
+\includegraphics[height=1cm]{logos/safari.jpg}
+
+\end{frame}
+
+\subsection{Alguna razón más para usar C++}
+
+\begin{frame}[t]{Algo más que un dibujo}
+\centering
+\vspace{-.8em}
+\includegraphics[height=.9\textheight]{img/mandel.jpg}
+\end{frame}
+
+\begin{frame}[t]{Comparando dos lenguajes}
+\begin{itemize}
+  \item Python:
+    \begin{itemize}
+      \item Tiempo de ejecución: 34.849 segundos
+      \item Consumo de energía (CPU): 350.95 julios
+    \end{itemize}
+
+  \vfill\pause
+  \item C++
+    \begin{itemize}
+      \item Tiempo de ejecución: 0.307 segundos.
+      \item Consumo de energía: 5.84 julios.
+    \end{itemize}
+
+  \vfill\pause
+  \item Mejoras:
+    \begin{itemize}
+      \item Tiempo se divide por 113.
+      \item Consumo de energía se divide por 60.
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]{Ayudando a los enfermos de epilepsia}
+\vspace{-.8em}
+\noindent
+\centering
+\includegraphics[height=.9\textheight]{img/seizure.png}
+\end{frame}
+
+\begin{frame}{Mejoras}
+\centering
+    \begin{tabular}{ |c||c||c|r| }
+      \hline
+      {Función} &   
+      {Python} &
+      {C++} & 
+      {Speed up} \\
+
+      \hline
+      \texttt{simpson} & 
+      $0.1845$ &  $0.0321$ & $\times5.74$ \\
+
+      \texttt{welch} & 
+      $2.0053$ &  $0.4095$ & $\times4.89$ \\
+      
+      \texttt{call\_psd} & 
+      $3.3504$ &  $0.0704$ & $\times47.56$ \\
+      
+      \texttt{call\_energy}    & 
+      $3.2378$ &  $0.0129$ & $\times250.82$ \\
+
+      \texttt{call\_max\_dist} & 
+      $3.0195$ &  $0.0148$ & $\times203.36$ \\
+
+      \hline
+
+      Tiempo total & 
+      \textbf{$8.5647$} &\textbf{$0.0997$}& \textbf{$\times85.89$} \\
+
+      \hline
+      \end{tabular}
+
+\vfill
+    \begin{itemize}
+      \item Procesador: Intel Xeon Gold 6326 (64) x 2 @ 3.500GHz
+      \item Número de hilos (Python): \texttt{multiprocessing.cpu\_count() == 64}
+      \item Número de hilos (C++): OpenMP's default (64)
+    \end{itemize}
+\end{frame}
+
+\subsection{¿Dónde surge C++?}
+
+
+\begin{frame}[t,fragile]{Bjarne Stroustrup}
+\begin{columns}
+
+\column{.4\textwidth}
+\includegraphics[height=.8\textheight]{img/bjarne-honoris.jpg}
+
+\column{.1\textwidth}
+\column{.5\textwidth}
+\begin{itemize}
+  \item 1975: Graduado en Matemáticas e Informática, Aarhus, Dinamarca.
+  \item 1979: Doctor en Informática, Cambridge, UK.
+  \item 1979--2002: AT\&T Labs.
+  \item 2002--2014: Universidad Texas A\&M.
+  \item 2014--2022: Morgan Stanley.
+  \item 2022--\ldots: Universidad de Columbia.
+\end{itemize}
+
+\end{columns}
+\end{frame}

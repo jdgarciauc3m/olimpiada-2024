@@ -1,0 +1,73 @@
+\subsection{Módulos}
+
+\begin{frame}[t,fragile]{Un cambio fundamental en el modelo de compilación}
+\begin{itemize}
+  \item El modelo basado en directivas \cppkey{include} se basa en la
+        idea de sustitución de texto.
+    \begin{itemize}
+      \item Cada vez que se encuentra una inclusión se sustituye esa línea
+            por el contenido del archivo.
+      \item Es un modelo que ralentiza las compilaciones.
+      \item Complica la estructura del software.
+    \end{itemize}
+\end{itemize}
+
+\begin{columns}[T]
+
+\column{.5\textwidth}
+\begin{lstlisting}
+#include <iostream>
+
+int main() {
+  std::println("¡Hola mundo!");
+}
+\end{lstlisting}
+
+\pause
+\column{.5\textwidth}
+\begin{lstlisting}
+import std;
+
+int main() {
+  std::println("¡Hola mundo!");
+}
+\end{lstlisting}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}[t,fragile]{Módulos en acción}
+\begin{itemize}
+  \item Los módulos permiten remplazar el enfoque basado en el preprocesador.
+    \begin{itemize}
+      \item Un programa está formado por unidades de módulos.
+      \item Cada módulo importa y exporta entidades.
+    \end{itemize}
+\end{itemize}
+
+\begin{columns}[T]
+
+\column{.5\textwidth}
+\begin{lstlisting}
+export module aritmetica;
+
+export double suma(double x, double y) {
+  return x+y;
+}
+\end{lstlisting}
+
+\column{.5\textwidth}
+\begin{lstlisting}
+import aritmetica;
+import std;
+
+int main() {
+  std::println("resultado = {}", suma(2,3));
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+\end{lstlisting}
+
+\end{columns}
+\end{frame}

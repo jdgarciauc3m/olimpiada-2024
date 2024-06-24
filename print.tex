@@ -1,0 +1,50 @@
+\subsection{Salida de texto}
+
+\begin{frame}[t,fragile]{Hola mundo a lo largo del tiempo}
+\begin{itemize}
+  \item El ejemplo clásico
+\begin{lstlisting}
+int main() {
+  std::cout << "Hola mundo" << std::endl;
+}
+\end{lstlisting}
+
+  \pause
+  \item Aunque mejor no abusar de \cppid{std::endl}.
+\begin{lstlisting}
+int main() {
+  std::cout << "Hola mundo\n";
+}
+\end{lstlisting}
+
+  \pause
+  \item Una forma más moderna de imprimir
+\begin{lstlisting}
+int main() {
+  std::print("Hola mundo");
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t,fragile]{Impresión de valores}
+\begin{itemize}
+\item Uso del operador \cppkey{<{}<}.
+\begin{lstlisting}
+void imprime(std::string_view nombre, int edad, double altura) {
+  std::cout << "Hola " << nombre << ". Tienes " << edad 
+            << " años y mides " << altura << "m.\n";
+}
+\end{lstlisting}
+
+\pause
+\item Uso del operador \cppkey{<{}<}.
+\begin{lstlisting}
+void imprime(std::string_view nombre, int edad, double altura) {
+  std::print("Hola {}. Tienes {} años y mides {} m.",
+             nombre, edad, altura);
+}
+\end{lstlisting}
+
+\end{itemize}
+\end{frame}

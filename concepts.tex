@@ -1,0 +1,63 @@
+\subsection{Conceptos}
+
+\begin{frame}[t,fragile]{Programación genérica}
+\begin{itemize}
+  \item La programación genérica permite definir una función
+        (o un tipo) para una familia de tipos.
+\begin{lstlisting}
+auto cuadrado(auto x) {
+  return x*x;
+}
+
+void f() {
+  auto a = cuadrado(2.0); // cuadrado<double>(2.0)
+  auto b = cuadrado(2); // cuadrado<int>(2)
+  auto c = cuadrado(2L); // cuadrado<long>(2L)
+  auto d = cuadrado("hola"); // Error: "hola" * "hola"
+  //...
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t,fragile]{Restricciones sobre tipos}
+\begin{itemize}
+  \item Se puede restringir un paráemtro genérico solamente
+        a los tipos que cumplen una propiedad.
+\begin{lstlisting}
+auto cuadrado(std::integral auto x) {
+  return x*x;
+}
+
+void f() {
+  auto a = cuadrado(2.0); // Error: double no es integral
+  auto b = cuadrado(2); // OK: cuadrado<int>(2)
+  auto c = cuadrado(2L); // OK: cuadrado<long>(2L)
+  auto d = cuadrado("hola"); // Error: "hola" no es integral
+  //...
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t,fragile]{Definición de nuevos conceptos}
+\begin{itemize}
+  \item Se pueden combinar conceptos existentes para definir nuevos conceptos.
+\begin{lstlisting}
+template <typename T>
+concept numerico = std::integral<T> or std::floating_point<T>;
+
+auto cuadrado(numerico auto x) {
+  return x*x;
+}
+
+void f() {
+  auto a = cuadrado(2.0); // OK: cuadrado<double>
+  auto b = cuadrado(2); // OK: cuadrado<int>(2)
+  auto c = cuadrado(2L); // OK: cuadrado<long>(2L)
+  auto d = cuadrado("hola"); // Error: "hola" no es numerico
+  //...
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
